@@ -1,7 +1,7 @@
 Name:           vim
 Version:        8.2
 Release:        1976%{?dist}
-Summary:        VIM editor builded by github source codes.
+Summary:        VIM editor built from github source codes.
 
 License:        Vim
 URL:            http://www.vim.org/
@@ -9,6 +9,7 @@ Source0:        vim-8.2.tar.gz
 
 BuildRequires:  gcc
 BuildRequires:  make
+BuildRequires:  ncurses-devel
 Requires: tcsh
 
 %define _unpackaged_files_terminate_build 0
@@ -20,7 +21,7 @@ still very popular.  VIM improves on vi by adding new features:
 multiple windows, multi-level undo, block highlighting and more.
 
 %prep
-%setup -q
+%setup -q -n vim
 
 
 %build
@@ -29,7 +30,6 @@ make %{?_smp_mflags}
 
 
 %install
-rm -rf $RPM_BUILD_ROOT
 %make_install
 
 
