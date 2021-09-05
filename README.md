@@ -1,6 +1,15 @@
 # vim_rpm
 Config files to build rpm packages of vim.
 
+## Download package from Github Release
+### RPM package
+```bash
+$ curl -s https://api.github.com/repos/mozzzzy/vim_rpm/releases | \
+  jq '.[].assets[] | select(.name == "vim-8.2-1976.el7.x86_64.rpm")' | \
+  jq '.url' | \
+  xargs curl -vLJO -H 'Accept: application/octet-stream'
+```
+
 ## Build
 ### Get source code of vim
 ```bash
